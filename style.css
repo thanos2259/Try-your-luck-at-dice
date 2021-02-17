@@ -225,3 +225,11 @@ main {
   border: none;
   background: none;
 }
+
+.p {
+  font-size: 160%;
+}
+
+h1 {
+  text-align: center;
+}
