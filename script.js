@@ -14,6 +14,10 @@ const victory0 = document.getElementById('victory0');
 const victory1 = document.getElementById('victory1');
 const topLeft = document.querySelector('.topleft');
 const topRight = document.querySelector('.topright');
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const btnCloseModal = document.querySelector('.close-modal');
+const btnOpenModal = document.querySelector('.btn--help');
 
 //beginning of the game.Set to 0
 let scores, currentScore, activePlayer, playing;
@@ -46,6 +50,28 @@ function init() {
   victory1.classList.add('hidden');
 }
 init();
+
+//Help window
+function openModal() {
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+}
+
+function closeModal() {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+}
+
+btnOpenModal.addEventListener('click', openModal);
+
+btnCloseModal.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});
 
 //Roll the dice
 btnRoll.addEventListener('click', function () {
